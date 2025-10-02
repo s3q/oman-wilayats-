@@ -19,11 +19,12 @@ with open("gadm.json", "r", encoding="utf-8") as f:
         gov = w["properties"]["NAME_1"]
         if data.get(gov) is None:
             data[gov] = {
-                "ar": trans[gov]
+                "ar": trans[gov],
+                "wilayat": {}
             }
 
         wilaya = w["properties"]["NAME_2"]
-        data[gov][wilaya] = {
+        data[gov]["wilayat"][wilaya] = {
             "ar": trans[wilaya],
             "geozone": w["geometry"]["coordinates"][0][0]
         }
